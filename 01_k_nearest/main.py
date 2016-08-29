@@ -29,6 +29,8 @@ class func:
         distances = sqDistances**0.5
         sortedDistIndicies = distances.argsort()#argsort给出排序后的下标索引
         classCount = {}
+		
+		#以下代码，通过下标，使标签矩阵与数据矩阵产生联系一一对应
         for i in range (k):
             voteIlabel = labels[sortedDistIndicies[i]]#距离最近的几个训练集的标签
             classCount[voteIlabel] = classCount.get(voteIlabel,0) + 1#得到前K个训练集中，到每一类标签的次数之和
